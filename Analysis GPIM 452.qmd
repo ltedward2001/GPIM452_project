@@ -1,0 +1,25 @@
+---
+title: "Project Analysis GPIM 452"
+format: html
+editor: visual
+---
+
+## Loading Packages
+
+```{r}
+
+library(readxl)
+library(haven)
+
+set.seed()
+```
+
+## Preview Dataset
+
+```{r}
+LAT = read_excel("Labor action tracker data 12.4.23.xlsx")
+
+view(LAT)
+
+variable.names(LAT)
+```

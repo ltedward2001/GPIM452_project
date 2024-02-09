@@ -11,6 +11,7 @@ editor: visual
 library(tidyverse)
 library(haven)
 library(here)
+library(ggplot2)
 set.seed()
 ```
 

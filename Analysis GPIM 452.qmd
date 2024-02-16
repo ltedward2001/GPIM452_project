@@ -44,5 +44,4 @@ LAT_clean <- clean_names(LAT_clean)
 ## Solving Blanks
 ```{r}
 num_blank <- sum(LAT_clean$latitude_longitude == "")
-print(num_blank)
 ```

@@ -12,6 +12,9 @@ library(tidyverse)
 library(haven)
 library(here)
 library(ggplot2)
+library(readxl)
+library(tidyr)
+library(janitor)
 set.seed()
 ```
 
@@ -23,4 +26,23 @@ LAT = read_excel("Labor action tracker data 12.4.23.xlsx")
 view(LAT)
 
 variable.names(LAT)
+```
+
+## Separating Multiple Locations
+```{r}
+LAT_clean <- separate_rows(LAT, "Zip Code", sep = ";")
+LAT_clean <- separate_rows(LAT_clean, "Latitude, Longitude", sep = ";")
+LAT_clean <- separate_rows(LAT_clean, State, sep = ";")
+```
+
+## Removing Duplicates and Cleaning Names
+```{r}
+LAT_clean <- distinct(LAT_clean)
+LAT_clean <- clean_names(LAT_clean)
+```
+
+## Solving Blanks
+```{r}
+num_blank <- sum(LAT_clean$latitude_longitude == "")
+print(num_blank)
 ```
